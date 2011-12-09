@@ -1,0 +1,277 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		375BABDC14917C4F003ACC91 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 375BABDB14917C4F003ACC91 /* Cocoa.framework */; };
+		375BABE614917C4F003ACC91 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 375BABE414917C4F003ACC91 /* InfoPlist.strings */; };
+		375BABEF14917CF5003ACC91 /* DTDEPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 375BABEE14917CF5003ACC91 /* DTDEPlugin.m */; };
+		375BABF21491FC50003ACC91 /* NSProcessInfo+DTDEPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 375BABF11491FC50003ACC91 /* NSProcessInfo+DTDEPlugin.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		375BABD814917C4F003ACC91 /* DeleteThatDamnEvent.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DeleteThatDamnEvent.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		375BABDB14917C4F003ACC91 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		375BABDE14917C4F003ACC91 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		375BABDF14917C4F003ACC91 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		375BABE014917C4F003ACC91 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		375BABE314917C4F003ACC91 /* DeleteThatDamnEvent-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DeleteThatDamnEvent-Info.plist"; sourceTree = "<group>"; };
+		375BABE514917C4F003ACC91 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		375BABE714917C4F003ACC91 /* DeleteThatDamnEvent-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DeleteThatDamnEvent-Prefix.pch"; sourceTree = "<group>"; };
+		375BABED14917CF5003ACC91 /* DTDEPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDEPlugin.h; sourceTree = "<group>"; };
+		375BABEE14917CF5003ACC91 /* DTDEPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTDEPlugin.m; sourceTree = "<group>"; };
+		375BABF01491FC50003ACC91 /* NSProcessInfo+DTDEPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSProcessInfo+DTDEPlugin.h"; sourceTree = "<group>"; };
+		375BABF11491FC50003ACC91 /* NSProcessInfo+DTDEPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSProcessInfo+DTDEPlugin.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		375BABD514917C4F003ACC91 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				375BABDC14917C4F003ACC91 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		375BABCD14917C4F003ACC91 = {
+			isa = PBXGroup;
+			children = (
+				375BABE114917C4F003ACC91 /* DeleteThatDamnEvent */,
+				375BABDA14917C4F003ACC91 /* Frameworks */,
+				375BABD914917C4F003ACC91 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		375BABD914917C4F003ACC91 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				375BABD814917C4F003ACC91 /* DeleteThatDamnEvent.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		375BABDA14917C4F003ACC91 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				375BABDB14917C4F003ACC91 /* Cocoa.framework */,
+				375BABDD14917C4F003ACC91 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		375BABDD14917C4F003ACC91 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				375BABDE14917C4F003ACC91 /* AppKit.framework */,
+				375BABDF14917C4F003ACC91 /* CoreData.framework */,
+				375BABE014917C4F003ACC91 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		375BABE114917C4F003ACC91 /* DeleteThatDamnEvent */ = {
+			isa = PBXGroup;
+			children = (
+				375BABE214917C4F003ACC91 /* Supporting Files */,
+				375BABED14917CF5003ACC91 /* DTDEPlugin.h */,
+				375BABEE14917CF5003ACC91 /* DTDEPlugin.m */,
+				375BABF01491FC50003ACC91 /* NSProcessInfo+DTDEPlugin.h */,
+				375BABF11491FC50003ACC91 /* NSProcessInfo+DTDEPlugin.m */,
+			);
+			path = DeleteThatDamnEvent;
+			sourceTree = "<group>";
+		};
+		375BABE214917C4F003ACC91 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				375BABE314917C4F003ACC91 /* DeleteThatDamnEvent-Info.plist */,
+				375BABE414917C4F003ACC91 /* InfoPlist.strings */,
+				375BABE714917C4F003ACC91 /* DeleteThatDamnEvent-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		375BABD714917C4F003ACC91 /* DeleteThatDamnEvent */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 375BABEA14917C4F003ACC91 /* Build configuration list for PBXNativeTarget "DeleteThatDamnEvent" */;
+			buildPhases = (
+				375BABD414917C4F003ACC91 /* Sources */,
+				375BABD514917C4F003ACC91 /* Frameworks */,
+				375BABD614917C4F003ACC91 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DeleteThatDamnEvent;
+			productName = DeleteThatDamnEvent;
+			productReference = 375BABD814917C4F003ACC91 /* DeleteThatDamnEvent.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		375BABCF14917C4F003ACC91 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = Octiplex;
+			};
+			buildConfigurationList = 375BABD214917C4F003ACC91 /* Build configuration list for PBXProject "DeleteThatDamnEvent" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 375BABCD14917C4F003ACC91;
+			productRefGroup = 375BABD914917C4F003ACC91 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				375BABD714917C4F003ACC91 /* DeleteThatDamnEvent */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		375BABD614917C4F003ACC91 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				375BABE614917C4F003ACC91 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		375BABD414917C4F003ACC91 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				375BABEF14917CF5003ACC91 /* DTDEPlugin.m in Sources */,
+				375BABF21491FC50003ACC91 /* NSProcessInfo+DTDEPlugin.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		375BABE414917C4F003ACC91 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				375BABE514917C4F003ACC91 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		375BABE814917C4F003ACC91 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		375BABE914917C4F003ACC91 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					x86_64,
+					i386,
+				);
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		375BABEB14917C4F003ACC91 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DeleteThatDamnEvent/DeleteThatDamnEvent-Prefix.pch";
+				INFOPLIST_FILE = "DeleteThatDamnEvent/DeleteThatDamnEvent-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		375BABEC14917C4F003ACC91 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DeleteThatDamnEvent/DeleteThatDamnEvent-Prefix.pch";
+				INFOPLIST_FILE = "DeleteThatDamnEvent/DeleteThatDamnEvent-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		375BABD214917C4F003ACC91 /* Build configuration list for PBXProject "DeleteThatDamnEvent" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				375BABE814917C4F003ACC91 /* Debug */,
+				375BABE914917C4F003ACC91 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		375BABEA14917C4F003ACC91 /* Build configuration list for PBXNativeTarget "DeleteThatDamnEvent" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				375BABEB14917C4F003ACC91 /* Debug */,
+				375BABEC14917C4F003ACC91 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 375BABCF14917C4F003ACC91 /* Project object */;
+}
