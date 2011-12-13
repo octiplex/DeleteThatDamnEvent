@@ -8,7 +8,7 @@ Delete That Damn Event is a [SIMBL][SIMBL] Plugin that bypass that limitation by
 
 ## Installation
 
-This plugin requires Mac OS X 10.7 and higher.
+This plugin requires Mac OS X 10.6 and higher.
 
  * Download and install [SIMBL][SIMBL].
  * Copy the the plugin in `~/Library/Application Support/SIMBL/Plugins`.
