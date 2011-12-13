@@ -7,7 +7,7 @@
 //
 
 #import "DTDEPlugin.h"
-#import "NSProcessInfo+DTDEPlugin.h"
+#import "DTDE_CFPrivate.h"
 
 #import <objc/runtime.h>
 
@@ -15,41 +15,83 @@
 
 + (NSString *)defaultUserAgent
 {
-    NSBundle *bundle = [NSBundle bundleForClass:[DTDEPlugin class]];
-    NSProcessInfo *processInfo = [NSProcessInfo processInfo];
-    return [NSString stringWithFormat:@"%@/%@ (%@); Mac OS X/%@ (%@)",
-            [bundle objectForInfoDictionaryKey:@"CFBundleName"],
-            [bundle objectForInfoDictionaryKey:@"CFBundleShortVersionString"],
-            [bundle objectForInfoDictionaryKey:@"CFBundleVersion"],
-            processInfo.operatingSystemShortVersion, processInfo.operatingSystemBuildNumber];
+    static NSString *userAgent = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        
+        NSBundle *bundle = nil;
+        
+        NSString *systemName = @"Mac OS X";
+        CFDictionaryRef systemInfo = _CFCopySystemVersionDictionary();
+        
+        if ( systemInfo )
+        {
+            systemName = [NSString stringWithFormat:@"Mac OS X/%@ (%@)",
+                          CFDictionaryGetValue(systemInfo, _kCFSystemVersionProductVersionKey),
+                          CFDictionaryGetValue(systemInfo, _kCFSystemVersionBuildVersionKey)];
+            CFRelease(systemInfo);
+        }
+        
+        bundle = [NSBundle bundleForClass:[DTDEPlugin class]];
+        NSString *pluginName = [NSString stringWithFormat:@"DTDEPlugin/%@ (%@)",
+                                [bundle objectForInfoDictionaryKey:@"CFBundleShortVersionString"],
+                                [bundle objectForInfoDictionaryKey:@"CFBundleVersion"]];
+        
+        bundle = [NSBundle bundleForClass:NSClassFromString(@"CalCalendarStore")];
+        NSString *calendarStoreName = [NSString stringWithFormat:@"CalendarStore/%@ (%@)",
+                                       [bundle objectForInfoDictionaryKey:@"CFBundleShortVersionString"],
+                                       [bundle objectForInfoDictionaryKey:@"CFBundleVersion"]];
+        
+        userAgent = [[NSString alloc] initWithFormat:@"%@; %@; %@;", calendarStoreName, pluginName, systemName];
+    });
+    
+    return userAgent;
 }
+
 
 + (void)load
 {
-    const char *className = "CalSession";
-    Class dstClass = objc_getClass(className);
+    NSString *applicationVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
+    BOOL isPre5 = [applicationVersion compare:@"5.0" options:NSNumericSearch] == NSOrderedAscending;
     
+    NSString *dstClassName = isPre5
+    ? @"DAVSession"  // iCal 4
+    : @"CalSession"; // iCal 5
+    
+    Class dstClass = NSClassFromString(dstClassName);
+
     if ( ! dstClass ) {
-        NSLog(@"%@: ERROR: No class \"%s\"", self, className);
+        NSLog(@"%@: ERROR: could not find class named \"%@\"", self, dstClassName);
         return;
     }
     
     SEL selector = @selector(defaultUserAgent);
-    if ( ! class_getClassMethod(dstClass, selector) ) {
-        NSLog(@"%@: ERROR: No method +[%s %s]", self, className, (const char *)selector);
+    Method dstMethod = class_getClassMethod(dstClass, selector);
+    if ( ! dstMethod ) {
+        NSLog(@"%@: ERROR: no method +[%@ %s]", self, dstClass, (const char *)selector);
         return;
     }
     
-    Method method = class_getClassMethod(self, selector);
-    char *returnType = method_copyReturnType(method);
-    IMP implementation = method_getImplementation(method);
-    Class dstMeta = objc_getMetaClass(className);
-    
-    class_replaceMethod(dstMeta, selector, implementation, returnType);
-    free(returnType);
+    Method srcMethod = class_getClassMethod(self, selector);
+    IMP implementation = method_getImplementation(srcMethod);
+    method_setImplementation(dstMethod, implementation);
     
     NSString *userAgent = [dstClass performSelector:@selector(defaultUserAgent)];
     NSLog(@"%@: Default User Agent is now \"%@\"", self, userAgent);
+    
+    if ( isPre5 )
+    {
+        // User-Agent already set in the instanciated DAVSession
+        @try {
+            // KVC is my friend!
+            Class managerClass = NSClassFromString(@"CalDAVPrincipalManager");
+            [managerClass setValue:userAgent forKeyPath:@"defaultManager.principalsArray.session.userAgent"];
+        }
+        @catch (NSException *exception) {
+            // NSUndefinedKeyException, welcome!
+            NSLog(@"%@: ERROR: %@", self, exception);
+        }
+    }
 }
 
 @end
