@@ -11,6 +11,7 @@ Delete That Damn Event is a [SIMBL][SIMBL] Plugin that bypass that limitation by
 This plugin requires Mac OS X 10.6 and higher.
 
  * Download and install [SIMBL][SIMBL].
+ * Download the [plugin][directDownload].
  * Copy the the plugin in `~/Library/Application Support/SIMBL/Plugins`.
  * Restart iCal.
  * That's it!
@@ -25,3 +26,4 @@ This project is provided under the Modified BSD License. You can read more about
 
 [SIMBL]: http://www.culater.net/software/SIMBL/SIMBL.php
 [googleSUpport]: http://support.google.com/calendar/bin/static.py?hl=en&page=known_issues.cs
+[directDownload]: https://github.com/downloads/octiplex/DeleteThatDamnEvent/DeleteThatDamnEvent%201.1.zip
